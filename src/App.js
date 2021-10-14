@@ -1,9 +1,12 @@
+import React from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <p>Welcome to BookCritiq</p>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <p>Welcome to BookCritiq</p>
+    )
+  }
 }
 
 export default App;
