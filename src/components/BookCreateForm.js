@@ -2,12 +2,15 @@
 // Should this component be controlled through redux? It could potentially double as an edit form.
 
 import React from 'react';
+import {connect} from 'react-redux';
+import {addBook} from '../actions/addBook.js'
 
 class BookCreateForm extends React.Component {
   state = {
     title: '',
     author: '',
-    description: ''
+    description: '',
+    image_url: ''
   }
 
   handleOnChange = (event) => {
@@ -20,14 +23,21 @@ class BookCreateForm extends React.Component {
   handleOnSubmit = (event) => {
     // now that we have all our form data, we want to save the thing we're making in the DB, and then update the Redux store.
     event.preventDefault();
-
+    this.props.addBook(this.state);
+    // clears the form after sending the data on its way
+    this.setState({
+      title: '', 
+      author: '',
+      description: '',
+      image_url: ''
+    })
   }
 
   render() {
     return (
       <div>
         <h2>Add a New Book</h2>
-        <form onSubmit={handleOnSubmit}>
+        <form onSubmit={this.handleOnSubmit}>
           <label>Book Title</label><br/>
           <input type="text" name="title" value={this.state.title} onChange={this.handleOnChange} placeholder="Title"/>
           <br/>
@@ -36,7 +46,11 @@ class BookCreateForm extends React.Component {
           <br/>
           <label>Description</label>
           <br/>
-          <input type="textarea" name="description" value={this.state.description} onChange={this.handleOnChange} placeholder="description"/>
+          <textarea name="description" value={this.state.description} onChange={this.handleOnChange} />
+          <br/>
+          <label>Cover Image URL</label>
+          <br/>
+          <input type="text" name="image_url" value={this.state.image_url} onChange={this.handleOnChange}/>
           <br/>
           <input type="submit" value="Submit"/>
         </form>
@@ -45,4 +59,6 @@ class BookCreateForm extends React.Component {
   }
 }
 
-export default BookCreateForm;
+
+export default connect(null, {addBook})(BookCreateForm);
+// connect in this component is not reading from state, but updating it, so we pass in the action where the mapDispatchToState function would go.
