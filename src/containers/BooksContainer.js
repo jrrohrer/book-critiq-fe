@@ -9,6 +9,7 @@ import {fetchBooks} from '../actions/fetchBooks.js';
 class BooksContainer extends React.Component {
 
   componentDidMount() {
+    console.log("inside componentDidMount")
     this.props.fetchBooks();
   }
 
@@ -16,7 +17,7 @@ class BooksContainer extends React.Component {
     return (
       <div>
         Books Container
-        <BooksList />
+        <BooksList books={this.props.books} />
         <BookCreateForm />
       </div>
     )
@@ -26,7 +27,7 @@ class BooksContainer extends React.Component {
 // get redux store and map it to props
 const mapStateToProps = state => {
   return {
-    // books: state.books
+    books: state.books
   }
 }
 

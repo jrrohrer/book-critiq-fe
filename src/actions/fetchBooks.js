@@ -6,7 +6,8 @@ export function fetchBooks() {
         .then(response => response.json())
         .then(books => dispatch({
           type: 'FETCH_BOOKS',
-          payload: books
+          payload: books.data
+          // payload points to books.data because of the way that the serializer sends the json through: as an object containing an array of objects.
         }))
   }
 }

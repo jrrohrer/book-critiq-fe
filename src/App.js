@@ -14,11 +14,5 @@ class App extends React.Component {
   }
 }
 
-// const mapStateToProps = (state) => {
-//   // accessing values from our store as props
-//   return {
-//     books: state.books
-//   }
-// }
 
-export default (App);
+export default App;

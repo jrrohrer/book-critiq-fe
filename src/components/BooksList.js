@@ -5,7 +5,7 @@ import React from 'react';
 const BooksList = (props) => {
   return (
     <div>
-      Book List
+      {props.books.map(book => <li key={book.id}>{book.title} - {book.author}</li>)}
     </div>
   )
 }
