@@ -2,8 +2,10 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
+import {Route, Switch} from 'react-router-dom'
 import BooksList from '../components/BooksList.js';
 import BookCreateForm from '../components/BookCreateForm.js';
+import BookShow from '../components/BookShow.js';
 import {fetchBooks} from '../actions/fetchBooks.js';
 
 class BooksContainer extends React.Component {
@@ -13,12 +15,16 @@ class BooksContainer extends React.Component {
     this.props.fetchBooks();
   }
 
+  // setting up routes here so that they have access to the props that they need. This component is already fetching and passing around props, so it seems the best place for routes. Setting up routes allows us to conditionally render components based on URL.
+
   render() {
     return (
       <div>
-        <h1>Book Shelf</h1>
-        <BooksList books={this.props.books} />
-        <BookCreateForm />
+        <Switch>
+          <Route path='/books/new' component={BookCreateForm} />
+          <Route path='/books/:id' render={(routerProps) => <BookShow {...routerProps} books={this.props.books} />} />
+          <Route path='/books' render={(routerProps) => <BooksList {...routerProps} books={this.props.books}/> } />
+        </Switch>
       </div>
     )
   }
