@@ -6,9 +6,8 @@ import BookShow from './BookShow.js'
 const BooksList = (props) => {
   return (
     <div>
-      <ul>
-        {props.books.map(book => <li key={book.id}><BookShow book={book}/></li>)}
-      </ul>
+      {props.books.map(book => 
+        <div key={book.id}><BookShow book={book}/></div> )}
     </div>
   )
 }
