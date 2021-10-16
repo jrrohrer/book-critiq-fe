@@ -16,7 +16,7 @@ class BooksContainer extends React.Component {
   render() {
     return (
       <div>
-        Books Container
+        <h1>Book Shelf</h1>
         <BooksList books={this.props.books} />
         <BookCreateForm />
       </div>
