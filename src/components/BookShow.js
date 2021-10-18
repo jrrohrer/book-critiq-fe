@@ -1,28 +1,20 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
 
-
-
 const BookShow = (props) => {
-  // console.log(props)
-  // let book = props.books[props.match.params.id - 1]
-
+  // using the useParams() hook that comes with React Router to access the id in the URL in order to render the correct book's info in the component. Using the routerProps match didn't work here, because it didn't account for skipped ID numbers. Book id: 5 was rendering at /books/2 because it was the second book in the props array. Using useParams fixed that issue, and it accounts for deleted items in the DB. 
   const {id} = useParams();
-  // let booksArray = props.books
   let book = props.books.filter(book => book.id === id)
-  let bookData = (book[0]) || {};
+  let bookData = (book[0].attributes);
+
   console.log(bookData)
   return (
     <div>
-      Book id: {id}
+      <h2>{bookData.title}</h2>
       <br/>
-      Book title: {bookData.attributes.title}
-      <br/>
-      Author: {bookData.attributes.author}
-      <br/>
-      Description: {bookData.attributes.description}
-      <br/>
-      <img src={bookData.attributes.image_url} alt={`Cover of ${bookData.attributes.title}.`} />
+      <h3>{bookData.author}</h3>
+      <p>{bookData.description}</p>
+      <img src={bookData.image_url} width='200' alt={`Cover of ${bookData.title}.`} />
 
     </div>
   )
