@@ -21,7 +21,9 @@ class BooksContainer extends React.Component {
     return (
       <div>
         <Switch>
-          <Route path='/books/new' component={BookCreateForm} />
+          <Route path='/books/new'>
+            <BookCreateForm />
+          </Route>
           <Route path='/books/:id' render={(routerProps) => <BookShow {...routerProps} books={this.props.books} />} />
           <Route path='/books' render={(routerProps) => <BooksList {...routerProps} books={this.props.books}/> } />
         </Switch>
