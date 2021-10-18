@@ -11,7 +11,6 @@ import {fetchBooks} from '../actions/fetchBooks.js';
 class BooksContainer extends React.Component {
 
   componentDidMount() {
-    console.log("inside componentDidMount")
     this.props.fetchBooks();
   }
 
