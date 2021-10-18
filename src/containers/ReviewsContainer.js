@@ -7,7 +7,7 @@ class ReviewsContainer extends React.Component {
     return (
       <div>
         Reviews Container
-        <ReviewCreateForm />
+        <ReviewCreateForm book={this.props.book}/>
         <Reviews reviews={this.props.book[0].attributes.reviews}/>
       </div>
     )
