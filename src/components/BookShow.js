@@ -7,7 +7,7 @@ const BookShow = (props) => {
   const {id} = useParams();
   let book = props.books.filter(book => book.id === id)
 
-  // check if the book was found. if not, return null (allow time for the fetchBook action to run.
+  // check if the book was found. if not, return null (allow time for the fetchBook action to run).
   if (book.length === 0) return null;
 
   let bookData = (book && book[0].attributes);
