@@ -6,16 +6,23 @@ export default function booksReducer(state = {books: []}, action) {
     case 'ADD_BOOK':
       return {...state, books: [...state.books, action.payload]}
     case 'ADD_REVIEW':
-      // debugger;
-      let books = state.books.map(book => {
+      let reviewedBooks = state.books.map(book => {
         if (book.id === action.payload.data.id) {
-
           return action.payload.data
         } else {
           return book
         }
       })
-      return {...state, books: books }
+      return {...state, books: reviewedBooks}
+    case 'DELETE_REVIEW':
+      let books = state.books.map(book => {
+        if (book.id === action.payload.data.id) {
+          return action.payload.data
+        } else {
+          return book
+        }
+      })
+      return {...state, books: books}
     default:
       return state;
   }
