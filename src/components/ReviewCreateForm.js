@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {addReview} from '../actions/addReview.js';
 
 
 // using a class component because this will contain a controlled form.
@@ -20,7 +21,11 @@ class ReviewCreateForm extends React.Component {
   
   handleOnSubmit = (event) => {
     event.preventDefault();
-    // addReview(this.state, this.props.book[0].id)
+    this.props.addReview(this.state, this.props.book[0].id)
+    this.setState({
+      title: '',
+      content: ''
+    })
   }
 
   render () {
@@ -39,4 +44,4 @@ class ReviewCreateForm extends React.Component {
   }
 }
 
-export default connect(null)(ReviewCreateForm);
+export default connect(null, {addReview})(ReviewCreateForm);
