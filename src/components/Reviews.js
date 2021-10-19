@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Reviews = (props) => {
-
+  console.log(props)
   return (
     <div>
       <h2>Reviews</h2>

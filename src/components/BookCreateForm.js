@@ -1,5 +1,4 @@
 // I want a controlled form, so this is a class component with local state holding form values that will update the store on submit...
-// Should this component be controlled through redux? It could potentially double as an edit form.
 
 import React from 'react';
 import {connect} from 'react-redux';
