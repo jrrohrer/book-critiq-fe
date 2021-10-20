@@ -1,0 +1,20 @@
+// overriding default variables before import
+$primary: rgb(88, 47, 66);
+$secondary: #586A6A;
+$success: rgb(84, 141, 105);
+$info: rgb(153, 121, 146);
+$warning: #DD7230;
+$danger: rgb(167, 82, 82);
+
+// mapping colors 
+
+$theme-colors: (
+  primary: $primary,
+  secondary: $secondary,
+  success: $success,
+  info: $info,
+  warning: $warning,
+  danger: $danger
+);
+
+@import '~bootstrap/scss/bootstrap.scss';

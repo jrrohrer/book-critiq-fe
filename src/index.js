@@ -7,7 +7,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import {Route, Switch} from 'react-router-dom';
 import Home from './components/Home.js'
 import booksReducer from './reducers/bookReducer.js';
-import './index.css';
+import './index.scss';
 import App from './App';
 
 // set up the redux store
