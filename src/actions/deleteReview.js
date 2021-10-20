@@ -4,6 +4,13 @@ export const deleteReview = (reviewId, bookId) => {
       method: "DELETE"
     })
     .then(response => response.json())
-    .then(book => dispatch({type: 'DELETE_REVIEW', payload: book}))
+    // .then(book => dispatch({type: 'DELETE_REVIEW', payload: book}))
+    .then(book => {
+      if (book.error) {
+        alert(book.error)
+      } else {
+        dispatch({type: 'DELETE_REVIEW', payload: book})
+      }
+    })
   }
 }

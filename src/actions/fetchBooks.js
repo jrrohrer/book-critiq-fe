@@ -4,11 +4,14 @@ export function fetchBooks() {
   return (dispatch) => {
     fetch('http://localhost:3001/api/v1/books')
         .then(response => response.json())
-        .then(books => dispatch({
-          type: 'FETCH_BOOKS',
-          payload: books.data
-          // payload points to books.data because of the way that the serializer sends the json through: as an object containing an array of objects.
-        }))
-  }
+        .then(books => {
+          if (books.error) {
+            alert(books.error)
+          } else {
+            dispatch({type: 'FETCH_BOOKS', payload: books.data})
+          }
+        })
+      }
 }
+// payload points to books.data because of the way that the serializer sends the json through: as an object containing an array of objects
 // dispatching the new data to the reducer to pass data to the store
