@@ -40,12 +40,17 @@
 * implement delete review functionality
 * **FINALLY** fixed the bug where refreshing on BookShow component lost data. Needed a conditional that told it to return null if there are no books to iterate through, which gives time for the fetchBooks action to re-run after the page refreshes.
 
+## 10-20-21
+* add error handling in fetch requests
+* add NavBar component
+* add Home component
+
 ## Requirements Checklist
 
 [x] The code should be written in ES6 as much as possible
 [x] Use the create-react-app generator to start your project.
 [x] Your app should have one HTML page to render your react-redux application
-[ ] There should be 5 stateless components
+[x] There should be 5 stateless components
 [x] There should be 3 routes
 [x] The Application must make use of react-router and proper RESTful routing 
 [x] Use Redux middleware to respond to and modify state change
