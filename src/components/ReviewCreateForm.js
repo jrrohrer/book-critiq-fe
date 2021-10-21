@@ -22,7 +22,7 @@ class ReviewCreateForm extends React.Component {
   
   handleOnSubmit = (event) => {
     event.preventDefault();
-    this.props.addReview(this.state, this.props.book[0].id)
+    this.props.addReview(this.state, this.props.book[0].id, this.props.history)
     this.setState({
       title: '',
       content: ''

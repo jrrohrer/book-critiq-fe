@@ -1,4 +1,4 @@
-export const addReview = (review, bookId) => {
+export const addReview = (review, bookId, history) => {
 
   return (dispatch) => {
     fetch(`http://localhost:3001/api/v1/books/${bookId}/reviews`, {
@@ -10,6 +10,10 @@ export const addReview = (review, bookId) => {
       body: JSON.stringify(review)
     })
       .then(response => response.json())
-      .then(book => dispatch({type: 'ADD_REVIEW', payload: book}))
+      .then(book => {
+        dispatch({type: 'ADD_REVIEW', payload: book})
+        history.push(`/books/${book.data.id}`)
+      })
+    
   }
 }
