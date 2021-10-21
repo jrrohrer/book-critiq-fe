@@ -28,9 +28,9 @@ const BookShow = (props) => {
           <h3 className="font-italic text-center">{bookData.author}</h3>
           <p>{bookData.description}</p>
           <Link to={`/books/${bookData.id}/reviews/new`}>
-            <Button>Create a New Review</Button>
+            <Button variant='secondary shadow m-3'>Create a New Review</Button>
           </Link>
-          <Button variant="warning" className='m-3' onClick={() => handleDelete(bookData)}>Delete Book</Button>
+          <Button variant="warning" className='shadow m-3' onClick={() => handleDelete(bookData)}>Delete Book</Button>
         </Col>
       </Row> 
       <ReviewsContainer book={book} />
