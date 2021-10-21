@@ -44,6 +44,10 @@
 * add error handling in fetch requests
 * add NavBar component
 * add Home component
+* add bootstrap/react-bootstrap/sass 
+* create custom color scheme 
+* add styling to the Home, Navbar, CreateBookForm, and BookShow components
+* added sort to BooksList to render the books in alphabetical order
 
 ## Requirements Checklist
 

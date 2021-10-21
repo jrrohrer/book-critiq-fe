@@ -4,9 +4,20 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const BooksList = (props) => {
+  let unorderedObj = props.books
+  console.log(unorderedObj)
+  
+  // collator lets me do a custom sort
+  const collator = new Intl.Collator('en');
+  function SortArray(x, y){
+    return collator.compare(x.attributes.title, y.attributes.title);
+  }
+
+  let booksArray = unorderedObj.sort(SortArray)
+
   return (
     <div>
-      {props.books.map(book => 
+      {booksArray.map(book => 
         <div key={book.id}>
           <Link to={`/books/${book.attributes.id}`}>
             {book.attributes.title}
