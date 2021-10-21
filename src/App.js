@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.scss';
 import BooksContainer from './containers/BooksContainer.js';
 import NavBar from './components/NavBar.js';
 
