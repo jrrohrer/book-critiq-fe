@@ -18,8 +18,9 @@ const BooksList = (props) => {
       {booksArray.map(book => 
         <div key={book.id}>
           <Link to={`/books/${book.attributes.id}`}>
-            {book.attributes.title}
+            <img src={book.attributes.image_url} alt={`Cover of ${book.attributes.title}`} width='300px' />
           </Link>
+          <p>{book.attributes.title}</p>
         </div> 
       )}
     </div>
