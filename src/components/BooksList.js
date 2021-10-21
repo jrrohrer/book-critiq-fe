@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Container, Card, Row, Col, Button} from 'react-bootstrap';
+import {Container, Card, Row, Col} from 'react-bootstrap';
 
 const BooksList = (props) => {
   let unorderedObj = props.books  
