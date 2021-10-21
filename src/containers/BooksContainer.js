@@ -23,8 +23,8 @@ class BooksContainer extends React.Component {
           <Route path='/books/new' render={(routeProps) => <BookCreateForm {...routeProps} /> } />
             {/* <BookCreateForm />
           </Route> */}
-          <Route path='/books/:id' render={() => <BookShow books={this.props.books} />} />
-          <Route path='/books' render={() => <BooksList books={this.props.books}/> } />
+          <Route path='/books/:id' render={(routeProps) => <BookShow {...routeProps} books={this.props.books} />} />
+          <Route path='/books' render={(routeProps) => <BooksList {...routeProps} books={this.props.books}/> } />
         </Switch>
       </div>
     )

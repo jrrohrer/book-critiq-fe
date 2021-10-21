@@ -23,6 +23,9 @@ export default function booksReducer(state = {books: []}, action) {
         }
       })
       return {...state, books: books}
+    case 'DELETE_BOOK':
+      let postDeleteBooks = state.books.filter(book => book !== action.payload)
+      return {...state, postDeleteBooks}
     default:
       return state;
   }
