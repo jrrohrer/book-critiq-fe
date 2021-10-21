@@ -11,12 +11,6 @@ export const addBook= (formData) => {
       body: JSON.stringify(formData)
     })
       .then(response => response.json())
-      .then(book => {
-        if (book.error) {
-          alert(book.error)
-        } else {
-          dispatch({type: 'ADD_BOOK', payload: book.data})
-        }
-      })
+      .then(book => dispatch({type: 'ADD_BOOK', payload: book.data}))
   }
 }

@@ -4,10 +4,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const BooksList = (props) => {
-  let unorderedObj = props.books
-  console.log(unorderedObj)
-  
-  // collator lets me do a custom sort
+  let unorderedObj = props.books  
+  // collator lets me do a custom sort. Here I'm sorting the props.books array (an array of book objects) by a nested attribute value using the collator to compare strings.
   const collator = new Intl.Collator('en');
   function SortArray(x, y){
     return collator.compare(x.attributes.title, y.attributes.title);

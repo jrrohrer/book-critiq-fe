@@ -10,12 +10,6 @@ export const addReview = (review, bookId) => {
       body: JSON.stringify(review)
     })
       .then(response => response.json())
-      .then(book => {
-        if (book.error) {
-          alert(book.error) 
-        } else {
-          dispatch({type: 'ADD_REVIEW', payload: book})
-        }
-      })
+      .then(book => dispatch({type: 'ADD_REVIEW', payload: book}))
   }
 }
