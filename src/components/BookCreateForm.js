@@ -1,6 +1,7 @@
 // I want a controlled form, so this is a class component with local state holding form values that will update the store on submit...
 
 import React from 'react';
+import { Form, Button, Container } from 'react-bootstrap';
 import {connect} from 'react-redux';
 import {addBook} from '../actions/addBook.js'
 
@@ -34,26 +35,28 @@ class BookCreateForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Add a New Book</h2>
-        <form onSubmit={this.handleOnSubmit}>
-          <label>Book Title</label><br/>
-          <input type="text" name="title" value={this.state.title} onChange={this.handleOnChange} placeholder="Title"/>
-          <br/>
-          <label>Author Name</label><br/>
-          <input type="text" name="author" value={this.state.author} onChange={this.handleOnChange} placeholder="Author"/>
-          <br/>
-          <label>Description</label>
-          <br/>
-          <textarea name="description" value={this.state.description} onChange={this.handleOnChange} />
-          <br/>
-          <label>Cover Image URL</label>
-          <br/>
-          <input type="text" name="image_url" value={this.state.image_url} onChange={this.handleOnChange}/>
-          <br/>
-          <input type="submit" value="Submit"/>
-        </form>
-      </div>
+      <Container className='w-50'>
+        <h2 className="header text-center">Add a New Book</h2>
+        <Form onSubmit={this.handleOnSubmit} className="mx-auto">
+          <Form.Group className="mb-3" controlId="title">
+            <Form.Label>Book Title</Form.Label>
+            <Form.Control type="text" name="title" value={this.state.title} onChange={this.handleOnChange} placeholder="Title"/>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="author">
+            <Form.Label>Author Name</Form.Label>
+            <Form.Control type="text" name="author" value={this.state.author} onChange={this.handleOnChange} placeholder="Author"/>
+          </Form.Group>
+          <Form.Group controlId="description">
+            <Form.Label>Description</Form.Label>
+            <Form.Control as="textarea" name="description" value={this.state.description} onChange={this.handleOnChange} style={{height: '100px'}}/>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="image_url">
+            <Form.Label>Cover Image URL</Form.Label>
+            <Form.Control type="text" name="image_url" value={this.state.image_url} onChange={this.handleOnChange}/>
+          </Form.Group>
+          <Button variant='secondary' type='submit'>Submit</Button>
+        </Form>
+      </Container>
     )
   }
 }
