@@ -22,8 +22,9 @@ class BookCreateForm extends React.Component {
 
   handleOnSubmit = (event) => {
     // now that we have all our form data, we want to save the thing we're making in the DB, and then update the Redux store.
+    debugger;
     event.preventDefault();
-    this.props.addBook(this.state);
+    this.props.addBook(this.state, this.props.history);
     // clears the form after sending the data on its way
     this.setState({
       title: '', 

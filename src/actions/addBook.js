@@ -1,4 +1,4 @@
-export const addBook= (formData) => {
+export const addBook= (formData, history) => {
 
   return (dispatch) => {
     // thunk helping again here
@@ -11,6 +11,9 @@ export const addBook= (formData) => {
       body: JSON.stringify(formData)
     })
       .then(response => response.json())
-      .then(book => dispatch({type: 'ADD_BOOK', payload: book.data}))
+      .then(book => {
+        dispatch({type: 'ADD_BOOK', payload: book.data})
+        history.push(`/books/${book.data.id}`)
+      })
   }
 }
