@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {addReview} from '../actions/addReview.js';
+import {Form, Button, Container} from 'react-bootstrap';
 
 
 // using a class component because this will contain a controlled form.
@@ -30,16 +31,22 @@ class ReviewCreateForm extends React.Component {
 
   render () {
     return (
-      <div>
-        <h2>Create a New Review</h2>
-        <form onSubmit={this.handleOnSubmit}>
-          <label>Review Title:</label><br/>
-          <input type="text" name="title" value={this.state.title} onChange={this.handleOnChange}/><br/>
-          <label>Content:</label><br/>
-          <textarea name="content" value={this.state.content} onChange={this.handleOnChange}/><br/>
-          <input type="submit" value="Submit" />
-        </form>
-      </div>
+      <Container className='w-50'>
+        <h2 className='header text-center'>Create a New Review</h2>
+        <Form onSubmit={this.handleOnSubmit} className='mx-auto'>
+          <Form.Group className='mb-3' controlId="title">
+            <Form.Label>Review Title:</Form.Label>
+            <Form.Control type="text" name="title" value={this.state.title} onChange={this.handleOnChange} required/>
+          </Form.Group>
+          <Form.Group className='mb-3' controlId="content">
+            <Form.Label>Content:</Form.Label>
+            <Form.Control as='textarea' name="content" value={this.state.content} onChange={this.handleOnChange} style={{height: '100px'}}/>
+          </Form.Group>
+          <div className='d-grid gap-2 col-6 mx-auto'>
+            <Button variant='secondary' type='submit'>Submit</Button>
+          </div>
+        </Form>
+      </Container>
     )
   }
 }
