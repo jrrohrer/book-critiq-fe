@@ -1,14 +1,15 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
+import {Link} from 'react-router-dom';
 
 
 class Home extends React.Component {
   render() {
     return (
-      <Container className='p-3'>
-          <h1 className='header'>Welcome to BookCritiq</h1>
-          <p>Helping fellow readers choose their next book by offering honest reviews.</p>
-      </Container>
+      <div className="p-5 mb-4 bg-light text-center">
+          <h1 className='display-5 fw-bold'>Welcome to BookCritiq</h1>
+          <p className='fs-4'>Helping fellow readers choose their next book by offering honest reviews.</p>
+          <Link to='/books'><button className='btn btn-secondary btn-lg' type='button'>Find a Book To Review</button></Link>
+      </div>
     )
   }
 }
