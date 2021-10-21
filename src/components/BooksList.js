@@ -18,14 +18,13 @@ const BooksList = (props) => {
     <Container fluid>
       <Row xs={1} md={2} lg={4} xl={6} className='g-8'>
         {booksArray.map(book => 
-          <Col key={book.id}>
-            <Card style={{width: '15rem'}} className='text-center p-3 m-2 mx-auto'>
-              <Card.Img variant='top' src={book.attributes.image_url} alt={`Cover of ${book.attributes.title}`} />
-              <Card.Title>{book.attributes.title}</Card.Title>
-              <Card.Text>by {book.attributes.author}</Card.Text>
+          <Col key={book.id} className='d-flex'>
+            <Card style={{width: '15rem'}} className='text-center p-3 m-2 mx-auto shadow'>
               <Link to={`/books/${book.attributes.id}`}>
-                <Button variant='primary'>Details</Button>
+                <Card.Img variant='top' src={book.attributes.image_url} alt={`Cover of ${book.attributes.title}`} />
               </Link>
+              <Card.Title>{book.attributes.title}</Card.Title>
+              <Card.Text>by {book.attributes.author}</Card.Text>  
             </Card> 
           </Col>
         )}
