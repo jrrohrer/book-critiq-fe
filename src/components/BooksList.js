@@ -2,6 +2,7 @@
 
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {Container, Card, Row, Col, Button} from 'react-bootstrap';
 
 const BooksList = (props) => {
   let unorderedObj = props.books  
@@ -14,16 +15,22 @@ const BooksList = (props) => {
   let booksArray = unorderedObj.sort(SortArray)
 
   return (
-    <div>
-      {booksArray.map(book => 
-        <div key={book.id}>
-          <Link to={`/books/${book.attributes.id}`}>
-            <img src={book.attributes.image_url} alt={`Cover of ${book.attributes.title}`} width='300px' />
-          </Link>
-          <p>{book.attributes.title}</p>
-        </div> 
-      )}
-    </div>
+    <Container fluid>
+      <Row xs={1} md={2} lg={4} xl={6} className='g-8'>
+        {booksArray.map(book => 
+          <Col>
+            <Card key={book.id} style={{width: '15rem'}} className='text-center p-3 m-2 mx-auto'>
+              <Card.Img variant='top' src={book.attributes.image_url} alt={`Cover of ${book.attributes.title}`} />
+              <Card.Title>{book.attributes.title}</Card.Title>
+              <Card.Text>by {book.attributes.author}</Card.Text>
+              <Link to={`/books/${book.attributes.id}`}>
+                <Button variant='primary'>Details</Button>
+              </Link>
+            </Card> 
+          </Col>
+        )}
+      </Row>
+    </Container>
   )
 }
 
