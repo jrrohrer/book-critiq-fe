@@ -25,7 +25,6 @@ class BookCreateForm extends React.Component {
     debugger;
     event.preventDefault();
     this.props.addBook(this.state, this.props.history);
-    // clears the form after sending the data on its way
     this.setState({
       title: '', 
       author: '',
