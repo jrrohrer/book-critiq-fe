@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {deleteReview} from '../actions/deleteReview.js';
+import {Container, Card, Button} from 'react-bootstrap';
 
 const Reviews = (props) => {
 
@@ -9,16 +10,16 @@ const Reviews = (props) => {
   }
 
   return (
-    <div>
-      <h2>Reviews</h2>
+    <Container>
+      <h2 className='header text-center bg-primary text-white'>Reviews</h2>
       {props.reviews.map(review => 
-        <div key={review.id}>
-          <h3>{review.title}</h3>
-          <p>{review.content}</p>
-          <button onClick={() => handleDelete(review)}>Delete</button>
-        </div>
+        <Card key={review.id} className='border-dark p-2 shadow'>
+          <Card.Title>{review.title}</Card.Title>
+          <Card.Text>{review.content}</Card.Text>
+          <Button variant='secondary' className='m-auto shadow' onClick={() => handleDelete(review)}>Delete</Button>
+        </Card>
       )}
-    </div>
+    </Container>
   )
 }
 
