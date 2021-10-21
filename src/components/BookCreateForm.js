@@ -36,7 +36,7 @@ class BookCreateForm extends React.Component {
   render() {
     return (
       <Container className='w-50'>
-        <h2 className="header text-center">Add a New Book</h2>
+        <h2 className="header text-center p-3">Add a New Book</h2>
         <Form onSubmit={this.handleOnSubmit} className="mx-auto">
           <Form.Group className="mb-3" controlId="title">
             <Form.Label>Book Title</Form.Label>
@@ -55,7 +55,7 @@ class BookCreateForm extends React.Component {
             <Form.Control type="text" name="image_url" value={this.state.image_url} onChange={this.handleOnChange}  required/>
           </Form.Group>
           <div className='d-grid gap-2 col-6 mx-auto'>
-            <Button variant='secondary' type='submit'>Submit</Button>
+            <Button variant='secondary' type='submit' className='m-auto shadow'>Submit</Button>
           </div>
         </Form>
       </Container>
