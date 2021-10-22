@@ -21,7 +21,7 @@ const BookShow = (props) => {
     <Container>
       <Row>
         <Col md={6}>
-          <img src={bookData.image_url} width='300' alt={`Cover of ${bookData.title}.`} className='p-5 mr-auto ml-auto' style={{display: 'block'}} />
+          <img src={bookData.image_url} width='300' alt={`Cover of ${bookData.title}.`} className='p-5 mr-auto ml-auto shadow fluid' style={{display: 'block'}} />
         </Col>
         <Col lg={true}>
           <h2 className="header text-center pt-5">{bookData.title}</h2>
