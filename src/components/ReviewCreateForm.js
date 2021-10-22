@@ -31,7 +31,7 @@ class ReviewCreateForm extends React.Component {
 
   render () {
     return (
-      <Container className='w-50'>
+      <Container className='w-50 p-5'>
         <h2 className='header text-center'>Create a New Review</h2>
         <Form onSubmit={this.handleOnSubmit} className='mx-auto'>
           <Form.Group className='mb-3' controlId="title">
@@ -43,7 +43,7 @@ class ReviewCreateForm extends React.Component {
             <Form.Control as='textarea' name="content" value={this.state.content} onChange={this.handleOnChange} style={{height: '100px'}}/>
           </Form.Group>
           <div className='d-grid gap-2 col-6 mx-auto'>
-            <Button variant='secondary' type='submit'>Submit</Button>
+            <Button variant='secondary' type='submit' className='m-auto shadow'>Submit</Button>
           </div>
         </Form>
       </Container>
