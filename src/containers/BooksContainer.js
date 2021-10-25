@@ -1,4 +1,4 @@
-// container components should render other components, pass them data if they need it, and contain functions (callbacks, componentDidMount, etc). Typically class components
+// Container component for all book components
 
 import React from 'react';
 import {connect} from 'react-redux';
@@ -14,15 +14,13 @@ class BooksContainer extends React.Component {
     this.props.fetchBooks();
   }
 
-  // setting up routes here so that they have access to the props that they need. This component is already fetching and passing around props, so it seems the best place for routes. Setting up routes allows us to conditionally render components based on URL.
+  // setting up routes here so that they have access to the props that they need. This component is already fetching and passing around props, so it seems the best place for routes.
 
   render() {
     return (
       <div>
         <Switch>
           <Route path='/books/new' render={(routeProps) => <BookCreateForm {...routeProps} /> } />
-            {/* <BookCreateForm />
-          </Route> */}
           <Route path='/books/:id' render={(routeProps) => <BookShow {...routeProps} books={this.props.books} />} />
           <Route path='/books' render={(routeProps) => <BooksList {...routeProps} books={this.props.books}/> } />
         </Switch>
@@ -31,7 +29,6 @@ class BooksContainer extends React.Component {
   }
 }
 
-// get redux store and map it to props
 const mapStateToProps = state => {
   return {
     books: state.books

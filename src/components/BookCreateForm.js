@@ -1,4 +1,4 @@
-// I want a controlled form, so this is a class component with local state holding form values that will update the store on submit...
+// Controlled form for creating a new book and persisting it to the DB
 
 import React from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
@@ -15,14 +15,11 @@ class BookCreateForm extends React.Component {
 
   handleOnChange = (event) => {
     this.setState({
-      // this is the notation for updating an object's key value pairs. without the square brackets, we would be adding a key of (literally) "event.target.name" with a value of whatever is typed in. So we're using bracket notation to update the state object with keys of the input's name with a value of what the user types in.
       [event.target.name]: event.target.value
     })
   }
 
   handleOnSubmit = (event) => {
-    // now that we have all our form data, we want to save the thing we're making in the DB, and then update the Redux store.
-    debugger;
     event.preventDefault();
     this.props.addBook(this.state, this.props.history);
     this.setState({
@@ -63,6 +60,4 @@ class BookCreateForm extends React.Component {
   }
 }
 
-
 export default connect(null, {addBook})(BookCreateForm);
-// connect in this component is not reading from state, but updating it, so we pass in the action where the mapDispatchToState function would go.

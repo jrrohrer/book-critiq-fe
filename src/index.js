@@ -10,7 +10,7 @@ import App from './App';
 
 // set up the redux store
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-// store is where data is stored globally, reducers tell us what to do with our store based on certain actions.
+// store is where data is stored globally, reducers tell us what to do with our store based on outcome of actions.
 let store = createStore(booksReducer, composeEnhancers(applyMiddleware(thunk)));
 
 ReactDOM.render(

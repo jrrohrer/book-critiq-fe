@@ -1,12 +1,9 @@
+// Controlled form for creating a new Review. The review will be associated with its book and persisted to the DB
+
 import React from 'react';
 import {connect} from 'react-redux';
 import {addReview} from '../actions/addReview.js';
 import {Form, Button, Container} from 'react-bootstrap';
-
-
-// using a class component because this will contain a controlled form.
-
-
 
 class ReviewCreateForm extends React.Component {
   state = {
