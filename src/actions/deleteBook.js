@@ -8,5 +8,6 @@ export const deleteBook = (bookId, history) => {
         dispatch({type: 'DELETE_BOOK', payload: bookId })
         history.push('/books')
       })
+      .catch(err => alert(err));
   }
 }

@@ -15,5 +15,6 @@ export const addBook= (formData, history) => {
         history.push(`/books/${book.data.id}`) //redirect to BookShow to confirm book was created
         alert("Book successfully created.")
       })
+      .catch(err => alert(err));
   }
 }

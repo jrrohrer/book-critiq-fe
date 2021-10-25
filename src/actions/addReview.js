@@ -14,6 +14,6 @@ export const addReview = (review, bookId, history) => {
         dispatch({type: 'ADD_REVIEW', payload: book})
         history.push(`/books/${book.data.id}`)
       })
-    
+      .catch(err => alert(err));
   }
 }

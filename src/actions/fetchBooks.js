@@ -9,5 +9,6 @@ export function fetchBooks() {
             dispatch({type: 'FETCH_BOOKS', payload: books.data})
           }
         })
+        .catch(err => alert(err));
       }
 }
