@@ -1,12 +1,11 @@
+// Responsive Navbar that resizes based on screen width. On small screens it converts to a hamburger menu.
 import React from 'react';
-// import {Link} from 'react-router-dom';
 import {Navbar, Nav, Container} from 'react-bootstrap';
 
-class NavBar extends React.Component {
-  render() {
-    return (
-      <>
-        <Navbar collapseOnSelect expand="sm" bg="primary" variant="dark">
+const NavBar = () => {
+  return (
+    <>
+      <Navbar collapseOnSelect expand="sm" bg="primary" variant="dark">
           <Container>
             <Navbar.Brand href="/">BookCritiq</Navbar.Brand>
             <Navbar.Toggle aria-controls='responsive-navbar-nav' />
@@ -17,11 +16,10 @@ class NavBar extends React.Component {
                 <Nav.Link href='/books/new'>Create New Book</Nav.Link>
               </Nav>
             </Navbar.Collapse>
-          </Container>
-        </Navbar>
-      </>
-    )
-  }
+        </Container>
+      </Navbar>
+    </>
+  )
 }
 
 export default NavBar;

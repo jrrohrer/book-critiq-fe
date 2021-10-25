@@ -1,3 +1,4 @@
+// Landing page w/ welcome message and link to BooksList
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {Container} from 'react-bootstrap'
