@@ -4,8 +4,6 @@ import {createStore, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
 import {Provider} from 'react-redux'
 import {BrowserRouter as Router} from 'react-router-dom';
-import {Route, Switch} from 'react-router-dom';
-import Home from './components/Home.js'
 import booksReducer from './reducers/bookReducer.js';
 import './index.scss';
 import App from './App';
@@ -20,9 +18,6 @@ ReactDOM.render(
     <Provider store={store}>
       <Router>
         <App />
-        <Switch>
-          <Route exact path="/" component={Home}/>
-        </Switch>
       </Router>
     </Provider>
   </React.StrictMode>,
