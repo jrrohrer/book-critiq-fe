@@ -1,7 +1,6 @@
 export const addBook= (formData, history) => {
 
   return (dispatch) => {
-    // thunk helping again here
     fetch('http://localhost:3001/api/v1/books', {
       method: 'POST',
       headers: {
@@ -13,7 +12,8 @@ export const addBook= (formData, history) => {
       .then(response => response.json())
       .then(book => {
         dispatch({type: 'ADD_BOOK', payload: book.data})
-        history.push(`/books/${book.data.id}`)
+        history.push(`/books/${book.data.id}`) //redirect to BookShow to confirm book was created
+        alert("Book successfully created.")
       })
   }
 }
