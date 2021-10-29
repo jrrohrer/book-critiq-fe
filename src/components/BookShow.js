@@ -3,6 +3,7 @@
 import React from 'react';
 import {useParams, Link} from 'react-router-dom';
 import ReviewsContainer from '../containers/ReviewsContainer.js';
+import Likes from '../components/Likes.js';
 import {Container, Row, Col, Button} from 'react-bootstrap';
 import {connect} from 'react-redux'
 import {deleteBook} from '../actions/deleteBook.js';
@@ -28,6 +29,7 @@ const BookShow = (props) => {
           <h2 className="header text-center pt-5">{bookData.title}</h2>
           <h3 className="font-italic text-center">{bookData.author}</h3>
           <p>{bookData.description}</p>
+          <Likes />
           <Link to={`/books/${bookData.id}/reviews/new`}>
             <Button variant='secondary shadow m-3'>Create a New Review</Button>
           </Link>
