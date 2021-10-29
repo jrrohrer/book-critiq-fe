@@ -4,7 +4,6 @@ import NavBar from './components/NavBar.js';
 import {Route, Switch} from 'react-router-dom';
 import Home from './components/Home.js'
 
-
 class App extends React.Component {
 
   render() {

@@ -37,7 +37,7 @@ class ReviewCreateForm extends React.Component {
           </Form.Group>
           <Form.Group className='mb-3' controlId="content">
             <Form.Label>Content:</Form.Label>
-            <Form.Control as='textarea' name="content" value={this.state.content} onChange={this.handleOnChange} style={{height: '100px'}}/>
+            <Form.Control as='textarea' name="content" value={this.state.content} onChange={this.handleOnChange} style={{height: '100px'}} required/>
           </Form.Group>
           <div className='d-grid gap-2 col-6 mx-auto'>
             <Button variant='secondary' type='submit' className='m-auto shadow'>Submit</Button>

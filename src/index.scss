@@ -17,4 +17,10 @@ $theme-colors: (
   danger: $danger
 );
 
+body {
+  background-image: url('./background.png')
+}
+
+
+
 @import '~bootstrap/scss/bootstrap.scss';

@@ -15,7 +15,7 @@ const Reviews = (props) => {
     <Container>
       <h2 className='header text-center bg-primary text-white'>Reviews</h2>
       {props.reviews.map(review => 
-        <Card key={review.id} className='border-dark p-2 shadow'>
+        <Card key={review.id} className='border-dark p-2 mb-2 shadow'>
           <Card.Title>{review.title}</Card.Title>
           <Card.Text>{review.content}</Card.Text>
           <Button variant='secondary' className='m-auto shadow' onClick={() => handleDelete(review)}>Delete</Button>
