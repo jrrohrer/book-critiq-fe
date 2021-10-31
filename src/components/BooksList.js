@@ -1,16 +1,13 @@
-// functional component for displaying all books ... replace with a search/add a search function later
-
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Container, Card, Row, Col, Button } from 'react-bootstrap';
+import React , {useState} from 'react';
+import {Link} from 'react-router-dom';
+import {Container, Card, Row, Col, Button} from 'react-bootstrap';
 
 const BooksList = (props) => {
-  const [state, setState] = React.useState({ sortOrder: "title" });
-
+  const [state, setState] = useState({ sortOrder: "title" }); // keeps track of what we're sorting by
   let unorderedObj = props.books
-  // using Collator() to do a custom sort. Sorting the props.books array by a nested attribute value using the collator to compare strings. Allows me to render the book cards in alphabetical order.
-  const collator = new Intl.Collator('en');
 
+  const collator = new Intl.Collator('en');
+    // using Collator() to do a custom sort. Sorting the props.books array by a nested attribute value using the collator to compare strings. Allows me to render the book cards in alphabetical order.
   function SortByTitle(x, y) {
     return collator.compare(x.attributes.title, y.attributes.title);
   }
@@ -18,8 +15,7 @@ const BooksList = (props) => {
   function SortByAuthorThenTitle(x, y) {
     var authorCompare = collator.compare(x.attributes.author, y.attributes.author);
     if (authorCompare !== 0) return authorCompare;
-
-    //Both books have the same author, sort by title
+    //Both books have the same author; sort by title
     return SortByTitle(x, y);
   }
 
@@ -28,7 +24,7 @@ const BooksList = (props) => {
       sortOrder: e.target.value
     });
   }
-
+  // set booksArray based on the chosen sort stored in state
   let booksArray = unorderedObj.sort(state.sortOrder === "title" ? SortByTitle : SortByAuthorThenTitle);
 
   return (
