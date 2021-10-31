@@ -3,7 +3,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {addReview} from '../actions/addReview.js';
-import {Form, Button, Container, } from 'react-bootstrap';
+import {Form, Button, Container} from 'react-bootstrap';
 
 class ReviewCreateForm extends React.Component {
   state = {
