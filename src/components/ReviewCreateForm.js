@@ -3,14 +3,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {addReview} from '../actions/addReview.js';
-import {Form, Button, Container} from 'react-bootstrap';
+import {Form, Button, Container, } from 'react-bootstrap';
 
 class ReviewCreateForm extends React.Component {
   state = {
     title: '',
-    content: ''
+    content: '',
   }
-  
+
   handleOnChange = (event) => {
     this.setState({
       [event.target.name] : event.target.value
@@ -19,11 +19,7 @@ class ReviewCreateForm extends React.Component {
   
   handleOnSubmit = (event) => {
     event.preventDefault();
-    this.props.addReview(this.state, this.props.book[0].id, this.props.history)
-    this.setState({
-      title: '',
-      content: ''
-    })
+    this.props.addReview(this.state, this.props.book[0].id, this.props.history);
   }
 
   render () {
