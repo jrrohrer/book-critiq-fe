@@ -21,6 +21,9 @@ body {
   background-image: url('./background.png')
 }
 
-
+.sortDiv {
+  display: flex;
+  justify-content: center;
+}
 
 @import '~bootstrap/scss/bootstrap.scss';
