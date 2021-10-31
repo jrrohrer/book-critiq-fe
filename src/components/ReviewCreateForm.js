@@ -20,6 +20,7 @@ class ReviewCreateForm extends React.Component {
   handleOnSubmit = (event) => {
     event.preventDefault();
     this.props.addReview(this.state, this.props.book[0].id, this.props.history);
+    this.props.toggle();
   }
 
   render () {
@@ -36,7 +37,7 @@ class ReviewCreateForm extends React.Component {
             <Form.Control as='textarea' name="content" value={this.state.content} onChange={this.handleOnChange} style={{height: '100px'}} required/>
           </Form.Group>
           <div className='d-grid gap-2 col-6 mx-auto'>
-            <Button variant='secondary' type='submit' className='m-auto shadow'>Submit</Button>
+            <Button variant='secondary' type='submit' className='m-auto shadow' >Submit</Button>
           </div>
         </Form>
       </Container>
