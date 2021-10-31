@@ -7,23 +7,30 @@ import BooksList from '../components/BooksList.js';
 import BookCreateForm from '../components/BookCreateForm.js';
 import BookShow from '../components/BookShow.js';
 import {fetchBooks} from '../actions/fetchBooks.js';
+import SuccessModal from '../components/SuccessModal.js';
 
 class BooksContainer extends React.Component {
+  state = {
+    showModal: false
+  }
+
+  toggleModal = () => {
+    this.setState({ showModal: !this.state.showModal})
+  }
 
   componentDidMount() {
     this.props.fetchBooks();
   }
 
-  // setting up routes here so that they have access to the props that they need. This component is already fetching and passing around props, so it seems the best place for routes.
-
   render() {
     return (
       <div>
         <Switch>
-          <Route path='/books/new' render={(routeProps) => <BookCreateForm {...routeProps} /> } />
+          <Route path='/books/new' render={(routeProps) => <BookCreateForm {...routeProps} toggle={this.toggleModal}/> } />
           <Route path='/books/:id' render={(routeProps) => <BookShow {...routeProps} books={this.props.books} />} />
           <Route path='/books' render={(routeProps) => <BooksList {...routeProps} books={this.props.books}/> } />
         </Switch>
+        <SuccessModal isOpen={this.state.showModal} toggle={this.toggleModal} />
       </div>
     )
   }

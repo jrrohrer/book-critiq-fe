@@ -22,12 +22,7 @@ class BookCreateForm extends React.Component {
   handleOnSubmit = (event) => {
     event.preventDefault();
     this.props.addBook(this.state, this.props.history);
-    this.setState({
-      title: '', 
-      author: '',
-      description: '',
-      image_url: ''
-    })
+    this.props.toggle();
   }
 
   render() {
