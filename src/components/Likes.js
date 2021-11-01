@@ -6,10 +6,27 @@ class Likes extends React.Component {
     likes: 0
   }
 
+  // pulling the likes count from local storage on mount & converting it from a string to a number, then using it to set the state
+  componentDidMount = () => {
+    const stringLikes = localStorage.getItem('likes')
+    const likes = parseInt(stringLikes, 10)
+    if (!isNaN(likes)) {
+      this.setState({
+        likes
+      })
+    }
+  }
+
+  // on update of the component, store the new value of the like count in local storage
+  componentDidUpdate = (prevProps, prevState) => {
+    if (prevState.likes !== this.state.likes) {
+      localStorage.setItem('likes', this.state.likes)
+    }
+  }
+
   handleClick = () => {
-    let newLikes = this.state.likes + 1
     this.setState({
-      likes: newLikes
+      likes: this.state.likes + 1
     })
   }
 
