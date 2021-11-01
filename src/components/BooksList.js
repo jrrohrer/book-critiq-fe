@@ -1,6 +1,7 @@
 import React , {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {Container, Card, Row, Col, Button} from 'react-bootstrap';
+import Likes from '../components/Likes.js';
 
 const BooksList = (props) => {
   const [state, setState] = useState({ sortOrder: "title" }); // keeps track of what we're sorting by
@@ -43,6 +44,7 @@ const BooksList = (props) => {
                 </Link>
                 <Card.Title>{book.attributes.title}</Card.Title>
                 <Card.Text>by {book.attributes.author}</Card.Text>
+                <Likes bookId={book.id} />
               </Card>
             </Col>
           )}
