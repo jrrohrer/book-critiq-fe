@@ -8,6 +8,7 @@ import BookCreateForm from '../components/BookCreateForm.js';
 import BookShow from '../components/BookShow.js';
 import {fetchBooks} from '../actions/fetchBooks.js';
 import SuccessModal from '../components/SuccessModal.js';
+// import Search from '../components/Search.js';
 
 class BooksContainer extends React.Component {
   state = {
@@ -25,6 +26,7 @@ class BooksContainer extends React.Component {
   render() {
     return (
       <div>
+        {/* <Search books={this.props.books} /> */}
         <Switch>
           <Route path='/books/new' render={(routeProps) => <BookCreateForm {...routeProps} toggle={this.toggleModal}/> } />
           <Route path='/books/:id' render={(routeProps) => <BookShow {...routeProps} books={this.props.books} />} />
